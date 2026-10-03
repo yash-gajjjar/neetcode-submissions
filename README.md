@@ -1,7 +1,5 @@
 # 🧠 NeetCode Solutions — Yash Gajjar
 
-> My personal **DSA interview preparation repository**, automatically synced with [NeetCode.io](https://neetcode.io).
->
 > 🎯 **Goal:** Build strong problem-solving fundamentals and prepare for product-based company interviews.
 
 ---
