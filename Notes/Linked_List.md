@@ -3,15 +3,6 @@
 
 ---
 
-## How to use these notes
-- **First pass:** read concept + "why it works" sections, trace the diagrams by hand.
-- **Revision pass (pre-interview):** jump straight to the 🔑 Cheat Sheet and Pattern Recognition tables at the top of each method.
-- **While solving:** use the "Signal → Technique" tables to map problem phrasing to the right variant in <10 seconds.
-
-All code examples in Python.
-
----
-
 ## 🔑 Cheat Sheet — All Four at a Glance
 | Structure/Technique | Core Idea | Typical Use | Time | Space |
 |---|---|---|---|---|
