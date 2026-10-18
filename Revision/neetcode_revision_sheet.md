@@ -1,6 +1,8 @@
 # NeetCode 150 - One-Day Interview Revision Sheet
 
-Built from the 115 problems in `yash-gajjjar/neetcode-submissions`, ordered by the NeetCode roadmap. Notes and Big-O describe the final/optimized code in the repo; complexities are derived from the code, not from the inline comments. A ⚠ marks places where the repo solution is not the interview-optimal one.
+Built from the 115 problems in `yash-gajjjar/neetcode-submissions`, ordered by the NeetCode roadmap. Notes and Big-O describe the final/optimized code in the repo; complexities are derived from the code, not from the inline comments. 
+
+⚠ - Marks places where the repo solution is not the interview-optimal one.
 
 Importance: Very High = asked very frequently / must-know pattern; High = common; Medium = occasional or easier warm-up.
 
