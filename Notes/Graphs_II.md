@@ -5,11 +5,6 @@
 
 ---
 
-## How to use these notes
-- **First pass:** read concept + "why it works" sections, trace the diagrams by hand.
-- **Revision pass (pre-interview):** jump straight to the 🔑 Cheat Sheet and Pattern Recognition tables at the top of each section.
-- **While solving:** use the "Signal → Technique" tables to map problem phrasing to the right algorithm in <10 seconds.
-
 All code examples in Python.
 
 ---
@@ -383,6 +378,3 @@ def topologicalSort_dfs(n, edges):
 - **Dijkstra's:** Network Delay Time, Path with Minimum Effort, Cheapest Flights Within K Stops
 - **Prim's / Kruskal's / Union-Find:** Min Cost to Connect All Points, Connecting Cities With Minimum Cost, Number of Connected Components in an Undirected Graph, Redundant Connection, Accounts Merge, Graph Valid Tree
 - **Topological Sort:** Course Schedule, Course Schedule II, Alien Dictionary
-
----
-*Format matches your Arrays & Hashing, Two Pointers, Sliding Window, Stack, Binary Search, Linked List, Trees, Tries, Backtracking, Graphs I, 1-D DP, and 2-D DP notes: concept → intuition → deep dive → patterns → pitfalls → interview Q&A, adapted for DSA revision speed.*
