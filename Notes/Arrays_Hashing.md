@@ -302,6 +302,3 @@ This turns an O(n²) brute force (all subarrays) into **O(n)**.
 - **Arrays/Hashing core:** Contains Duplicate, Valid Anagram, Two Sum, Group Anagrams, Top K Frequent Elements, Product of Array Except Self, Valid Sudoku, Encode and Decode Strings, Longest Consecutive Sequence
 - **Hash implementation practice:** Design HashMap (LC 706), Design HashSet (LC 705)
 - **Prefix sums:** Subarray Sum Equals K, Range Sum Query - Immutable, Product of Array Except Self (prefix/suffix variant)
-
----
-*Format matches your system design guide structure: concept → intuition → deep dive → patterns → pitfalls → interview Q&A, adapted for DSA revision speed.*
