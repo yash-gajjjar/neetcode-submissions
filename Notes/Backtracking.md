@@ -5,11 +5,6 @@
 
 ---
 
-## How to use these notes
-- **First pass:** read concept + "why it works" sections, trace the diagrams by hand.
-- **Revision pass (pre-interview):** jump straight to the 🔑 Cheat Sheet and Pattern Recognition tables at the top of each section.
-- **While solving:** use the "Signal → Technique" tables to map problem phrasing to the right pattern in <10 seconds.
-
 All code examples in Python.
 
 ---
@@ -280,6 +275,3 @@ def generateParenthesis(n):
 ## Suggested Problem Set for This Section
 - **Fundamentals/Subsets/Permutations/Combinations:** Subsets, Subsets II, Permutations, Permutations II, Combinations, Combination Sum, Combination Sum II
 - **Pruning/Constraint Satisfaction:** N-Queens, Sudoku Solver, Generate Parentheses, Word Search, Palindrome Partitioning, Letter Combinations of a Phone Number
-
----
-*Format matches your Arrays & Hashing, Two Pointers, Sliding Window, Stack, Binary Search, Linked List, Trees, and Tries notes: concept → intuition → deep dive → patterns → pitfalls → interview Q&A, adapted for DSA revision speed.*
