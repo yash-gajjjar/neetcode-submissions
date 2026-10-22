@@ -5,11 +5,6 @@
 
 ---
 
-## How to use these notes
-- **First pass:** read concept + "why it works" sections, trace the diagrams by hand.
-- **Revision pass (pre-interview):** jump straight to the 🔑 Cheat Sheet and Pattern Recognition tables at the top of each section.
-- **While solving:** use the "Signal → Technique" tables to map problem phrasing to the right technique in <10 seconds.
-
 All code examples in Python.
 
 ---
@@ -185,6 +180,3 @@ def findWords(board, words):
 ## Suggested Problem Set for This Section
 - **Fundamentals:** Implement Trie (Prefix Tree)
 - **Applications:** Design Add and Search Words Data Structure (wildcard), Word Search II, Longest Word in Dictionary, Replace Words, Design Search Autocomplete System
-
----
-*Format matches your Arrays & Hashing, Two Pointers, Sliding Window, Stack, Binary Search, Linked List, and Trees notes: concept → intuition → deep dive → patterns → pitfalls → interview Q&A, adapted for DSA revision speed.*
