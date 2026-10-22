@@ -5,11 +5,6 @@
 
 ---
 
-## How to use these notes
-- **First pass:** read concept + "why it works" sections, trace the binary examples by hand.
-- **Revision pass (pre-interview):** jump straight to the 🔑 Cheat Sheet and Pattern Recognition tables at the top of each section.
-- **While solving:** use the "Signal → Technique" tables to map problem phrasing to the right trick in <10 seconds.
-
 All code examples in Python.
 
 ---
@@ -270,6 +265,3 @@ def subsets_bitmask(nums):
 - **XOR patterns:** Single Number, Missing Number, Single Number III (two uniques)
 - **Construction / overflow handling:** Reverse Bits, Sum of Two Integers, Reverse Integer
 - **Bitmask:** Subsets (bitmask version), Maximum Product of Word Lengths
-
----
-*Format matches your Arrays & Hashing, Two Pointers, Sliding Window, Stack, Binary Search, Linked List, Trees, Tries, Backtracking, Graphs I & II, Heap, 1-D DP, and 2-D DP notes: concept → intuition → deep dive → patterns → pitfalls → interview Q&A, adapted for DSA revision speed.*
