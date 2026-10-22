@@ -5,11 +5,6 @@
 
 ---
 
-## How to use these notes
-- **First pass:** read concept + "why it works" sections, trace the diagrams by hand.
-- **Revision pass (pre-interview):** jump straight to the 🔑 Cheat Sheet and Pattern Recognition tables at the top of each section.
-- **While solving:** use the "Signal → Technique" tables to map problem phrasing to the right technique in <10 seconds.
-
 All code examples in Python.
 
 ---
@@ -127,7 +122,7 @@ def build_adjacency_list(n, edges, directed=False):
 | Complexity | O(rows × cols) — each cell visited once |
 
 ## Core Intuition
-A 2D grid is an **implicit graph**: instead of an explicit adjacency list, neighbors are computed on the fly using offset directions. DFS on a grid explores as far as possible in one direction (e.g., through a connected region of land, or through a maze path) before backtracking — exactly the same DFS mechanism as trees/graphs, just with neighbors computed via `(row ± 1, col)` / `(row, col ± 1)` instead of `.left`/`.right` or an adjacency list lookup.
+A 2D grid is an **implicit graph**: neighbors are computed on the fly using coordinate offsets. The underlying DFS idea—explore deeply before backtracking—is the same as in [Trees — DFS Traversals](Trees.md); the grid-specific work is computing neighboring cells and tracking which cells have been visited.
 
 ```
 Grid (1 = land, 0 = water):
@@ -196,7 +191,7 @@ def numIslands(grid):
 | Complexity | O(rows × cols) time, O(rows × cols) space (queue can hold up to a full "ring" of the grid) |
 
 ## Core Intuition
-Just like BFS on trees finds the minimum depth by exploring the nearest nodes first, BFS on a grid finds the **shortest number of steps** to reach a target cell, because it expands outward one "ring" of distance at a time — nothing farther away is explored until everything closer has been fully processed.
+As in [Trees — BFS / Level Order Traversal](Trees.md), BFS processes nearer nodes before farther ones. On an unweighted grid, this means the first visit to a cell gives the shortest number of steps; neighbors are generated from coordinate offsets rather than stored as explicit edges.
 
 ```
 Grid, find shortest path from S to E (0 = open, X = wall):
@@ -304,8 +299,3 @@ def orangesRotting(grid):
 - **Fundamentals/Adjacency List:** (conceptual — used as setup for most graph problems below and in Graphs II)
 - **Matrix DFS:** Number of Islands, Max Area of Island, Flood Fill, Surrounded Regions, Number of Enclaves
 - **Matrix BFS:** Shortest Path in Binary Matrix, Rotting Oranges, Walls and Gates, 01 Matrix, Shortest Bridge (DFS + BFS combined)
-
----
-*Format matches your Arrays & Hashing, Two Pointers, Sliding Window, Stack, Binary Search, Linked List, Trees, Tries, and Backtracking notes: concept → intuition → deep dive → patterns → pitfalls → interview Q&A, adapted for DSA revision speed.*
-
-*Graphs II (general adjacency-list traversal, Union-Find, topological sort, Dijkstra, and related algorithms) to follow separately.*
