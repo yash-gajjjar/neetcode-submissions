@@ -3,11 +3,6 @@
 
 ---
 
-## How to use these notes
-- **First pass:** read concept + "why it works" sections, trace the diagrams by hand.
-- **Revision pass (pre-interview):** jump straight to the 🔑 Cheat Sheet and Pattern Recognition tables at the top of each section.
-- **While solving:** use the "Signal → Technique" tables to map problem phrasing to the right technique in <10 seconds.
-
 All code examples in Python.
 
 ---
@@ -312,6 +307,3 @@ def longestPalindromeSubseq(s):
 - **0/1 Knapsack:** Partition Equal Subset Sum, Target Sum, Last Stone Weight II, Ones and Zeroes
 - **Unbounded Knapsack:** Coin Change, Coin Change II, Combination Sum IV (permutation-counting variant — outer loop is the amount, not the coins)
 - **LCS:** Longest Common Subsequence, Longest Palindromic Subsequence, Edit Distance, Shortest Common Supersequence, Delete Operation for Two Strings
-
----
-*Format matches your Arrays & Hashing, Two Pointers, Sliding Window, Stack, Binary Search, Linked List, Trees, Tries, Backtracking, Graphs I, and 1-D DP notes: concept → intuition → deep dive → patterns → pitfalls → interview Q&A, adapted for DSA revision speed.*
