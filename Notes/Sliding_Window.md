@@ -3,13 +3,6 @@
 
 ---
 
-## How to use these notes
-- **First pass:** read concept + "why it works" sections, trace the diagrams by hand.
-- **Revision pass (pre-interview):** jump straight to the 🔑 Cheat Sheet and Pattern Recognition tables at the top of each method.
-- **While solving:** use the "Signal → Technique" tables to map problem phrasing to the right variant in <10 seconds.
-
----
-
 ## 🔑 Cheat Sheet — Both Methods at a Glance
 | Method | Window Size | Movement | Typical Use | Time | Space |
 |---|---|---|---|---|---|
@@ -188,6 +181,3 @@ def minWindow(s, t):
 ## Suggested NeetCode 150 Problem Set for This Section
 - **Fixed size:** Maximum Average Subarray I, Permutation in String, Sliding Window Maximum
 - **Variable size:** Best Time to Buy and Sell Stock, Longest Substring Without Repeating Characters, Longest Repeating Character Replacement, Permutation in String (alt. approach), Minimum Window Substring, Minimum Size Subarray Sum
-
----
-*Format matches your Arrays & Hashing and Two Pointers notes: concept → intuition → deep dive → patterns → pitfalls → interview Q&A, adapted for DSA revision speed.*
