@@ -3,11 +3,6 @@
 
 ---
 
-## How to use these notes
-- **First pass:** read concept + "why it works" sections, trace the diagrams by hand.
-- **Revision pass (pre-interview):** jump straight to the 🔑 Cheat Sheet and Pattern Recognition tables at the top of each section.
-- **While solving:** use the "Signal → Technique" tables to map problem phrasing to the right technique in <10 seconds.
-
 All code examples in Python.
 
 ---
@@ -233,6 +228,3 @@ def countSubstrings(s):
 ## Suggested Problem Set for This Section
 - **1-D DP Fundamentals:** Climbing Stairs, House Robber, House Robber II, Longest Increasing Subsequence, Maximum Subarray, Decode Ways, Coin Change (also appears in Unbounded Knapsack, 2-D DP notes), Word Break
 - **Palindrome DP:** Longest Palindromic Substring, Palindromic Substrings, Longest Palindromic Subsequence, Palindrome Partitioning, Minimum Insertion Steps to Make a String Palindrome
-
----
-*Format matches your Arrays & Hashing, Two Pointers, Sliding Window, Stack, Binary Search, Linked List, Trees, Tries, Backtracking, and Graphs I notes: concept → intuition → deep dive → patterns → pitfalls → interview Q&A, adapted for DSA revision speed.*
