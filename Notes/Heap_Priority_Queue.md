@@ -3,11 +3,6 @@
 
 ---
 
-## How to use these notes
-- **First pass:** read concept + "why it works" sections, trace the diagrams by hand.
-- **Revision pass (pre-interview):** jump straight to the 🔑 Cheat Sheet and Pattern Recognition tables at the top of each section.
-- **While solving:** use the "Signal → Technique" tables to map problem phrasing to the right technique in <10 seconds.
-
 All code examples in Python (using the built-in `heapq` module, which implements a **min-heap**).
 
 ---
@@ -320,6 +315,3 @@ class MedianFinder:
 - **Heapify:** Kth Largest Element in an Array, Top K Frequent Elements
 - **Two Heaps:** Find Median from Data Stream, Sliding Window Median, IPO
 - **General heap application:** Merge K Sorted Lists, Task Scheduler, K Closest Points to Origin
-
----
-*Format matches your Arrays & Hashing, Two Pointers, Sliding Window, Stack, Binary Search, Linked List, Trees, Tries, Backtracking, Graphs I, Graphs II, 1-D DP, and 2-D DP notes: concept → intuition → deep dive → patterns → pitfalls → interview Q&A, adapted for DSA revision speed.*
