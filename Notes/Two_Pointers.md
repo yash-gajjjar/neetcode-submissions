@@ -3,13 +3,6 @@
 
 ---
 
-## How to use these notes
-- **First pass:** read concept + "why it works" sections, trace the diagrams by hand.
-- **Revision pass (pre-interview):** jump straight to the 🔑 Cheat Sheet and Pattern Recognition tables at the top of each method.
-- **While solving:** use the "Signal → Technique" tables to map problem phrasing to the right variant in <10 seconds.
-
----
-
 ## 🔑 Cheat Sheet — Both Methods at a Glance
 | Method | Pointer Movement | Typical Precondition | Time | Space |
 |---|---|---|---|---|
@@ -132,32 +125,21 @@ fast=4: nums[4]=12 → swap(slow=2, fast=4) → [1,3,12,0,0], slow=3
 ```
 `slow` always points to the next position where a "valid" element should be written; `fast` does the scanning/discovery.
 
-### (b) Cycle detection / middle-of-list (Floyd's Tortoise and Hare)
-```
-slow moves 1 step, fast moves 2 steps per iteration.
-If there's a cycle, fast eventually laps slow → they meet.
-If no cycle, fast hits null first.
-```
-```python
-def hasCycle(head):
-    slow, fast = head, head
-    while fast and fast.next:
-        slow = slow.next
-        fast = fast.next.next
-        if slow == fast:
-            return True
-    return False
-```
-**Why it works:** in a cycle, the gap between `fast` and `slow` shrinks by 1 each iteration (fast gains 1 step relative to slow every step) — so they're guaranteed to meet within one full lap of the cycle, not run forever.
+### (b) Linked-list applications
+
+Fast/slow pointers also solve linked-list problems such as cycle detection,
+finding the middle, and locating the cycle start. See [Linked List — Fast and
+Slow Pointers](Linked_List.md) for the full explanation, implementation, and
+cycle-start proof.
 
 ## Signal → Technique
 | Signal in Problem Statement | Technique |
 |---|---|
 | "remove duplicates from sorted array in place" | slow = write pointer, fast = scan pointer, advance slow only on new distinct value |
 | "move zeroes / partition array by condition" | slow = next-write position, fast = scanner |
-| "detect cycle in linked list" | Floyd's fast (2x) & slow (1x) — meet ⟹ cycle |
-| "find middle of linked list" | fast (2x) & slow (1x) — when fast hits end, slow is at middle |
-| "find start of cycle" | Floyd's Part 2: after meeting, reset one pointer to head, move both 1 step at a time — they meet at cycle start |
+| "detect cycle in linked list" | Floyd's fast (2x) & slow (1x); see [Linked List — Fast and Slow Pointers](Linked_List.md) for the implementation |
+| "find middle of linked list" | fast (2x) & slow (1x) — details in [Linked List — Fast and Slow Pointers](Linked_List.md) |
+| "find start of cycle" | Floyd's Part 2; see [Linked List — Fast and Slow Pointers](Linked_List.md) for the proof |
 | "remove Nth node from end of list" | fast pointer starts N steps ahead, then both move together until fast hits end |
 | "linked list palindrome check" | fast/slow to find middle, reverse second half, then converge-compare (combines both methods!) |
 
@@ -179,10 +161,10 @@ def removeDuplicates(nums):
 - Confusing "fast advances every step" with "fast and slow always move together" — in compaction problems, `slow` only advances *conditionally*, `fast` always advances.
 - Off-by-one in the Nth-from-end pattern — decide whether the gap is `n` or `n+1` steps and verify with a small example before coding.
 - Null pointer checks in linked-list fast/slow — always guard `fast and fast.next` before `fast.next.next`.
-- Forgetting Floyd's algorithm has **two phases** (detect meeting point, then find cycle start) — a common half-answer in interviews.
+- Forgetting Floyd's algorithm has **two phases** (detect meeting point, then find cycle start) — see [Linked List — Fast and Slow Pointers](Linked_List.md) for the full derivation.
 
 ## Interview Talking Points
-- Fast/slow (Floyd's) is a favorite "prove it mathematically" follow-up — be ready to explain the relative-speed/gap-shrinking argument, not just recite the code.
+- Fast/slow (Floyd's) is a favorite "prove it mathematically" follow-up — be ready to explain the relative-speed/gap-shrinking argument; the linked-list notes include the full proof.
 - If asked "can you do this without extra space?" for array problems (dedup, move zeroes, partition), fast/slow in-place is almost always the expected answer.
 
 ---
@@ -200,6 +182,3 @@ def removeDuplicates(nums):
 ## Suggested NeetCode 150 Problem Set for This Section
 - **Converging pointers:** Valid Palindrome, Two Sum II - Input Array Is Sorted, 3Sum, Container With Most Water, Trapping Rain Water
 - **Fast & slow pointers:** Remove Duplicates from Sorted Array, Move Zeroes, Linked List Cycle, Middle of the Linked List, Remove Nth Node From End of List, Palindrome Linked List
-
----
-*Format matches your Arrays & Hashing notes: concept → intuition → deep dive → patterns → pitfalls → interview Q&A, adapted for DSA revision speed.*
