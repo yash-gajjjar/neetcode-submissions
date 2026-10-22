@@ -5,11 +5,6 @@
 
 ---
 
-## How to use these notes
-- **First pass:** read concept + "why it works" sections, trace the diagrams by hand.
-- **Revision pass (pre-interview):** jump straight to the 🔑 Cheat Sheet and Pattern Recognition tables at the top of each section.
-- **While solving:** use the "Signal → Technique" tables to map problem phrasing to the right traversal/technique in <10 seconds.
-
 All code examples in Python.
 
 ---
@@ -466,6 +461,3 @@ class OrderedSetSim:
 - **DFS-shaped:** Maximum Depth of Binary Tree, Diameter of Binary Tree, Balanced Binary Tree, Same Tree, Subtree of Another Tree, Invert Binary Tree, Path Sum
 - **BFS-shaped:** Binary Tree Right Side View, Minimum Depth of Binary Tree, Zigzag Level Order Traversal
 - **BST:** Validate Binary Search Tree, Insert into a BST, Delete Node in a BST, Kth Smallest Element in a BST, Lowest Common Ancestor of a BST, Convert Sorted Array to Balanced BST
-
----
-*Format matches your Arrays & Hashing, Two Pointers, Sliding Window, Stack, Binary Search, and Linked List notes: concept → intuition → deep dive → patterns → pitfalls → interview Q&A, adapted for DSA revision speed.*
