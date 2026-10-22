@@ -371,6 +371,3 @@ def insert(head, insertVal):
 - **Doubly Linked List:** LRU Cache, Design Browser History, Flatten a Multilevel Doubly Linked List
 - **Fast & Slow Pointers:** Linked List Cycle, Linked List Cycle II, Middle of the Linked List, Palindrome Linked List
 - **Circular Linked List:** Design Circular Queue, Insert into a Sorted Circular Linked List, Josephus Problem (practice variant)
-
----
-*Format matches your Arrays & Hashing, Two Pointers, Sliding Window, Stack, and Binary Search notes: concept → intuition → deep dive → patterns → pitfalls → interview Q&A, adapted for DSA revision speed.*
