@@ -3,13 +3,6 @@
 
 ---
 
-## How to use these notes
-- **First pass:** read concept + "why it works" sections, trace the diagrams by hand.
-- **Revision pass (pre-interview):** jump straight to the 🔑 Cheat Sheet and Pattern Recognition tables at the top of each method.
-- **While solving:** use the "Signal → Technique" tables to map problem phrasing to the right variant in <10 seconds.
-
----
-
 ## 🔑 Cheat Sheet — Both Methods at a Glance
 | Method | Core Idea | Typical Use | Time | Space |
 |---|---|---|---|---|
@@ -193,6 +186,3 @@ def dailyTemperatures(temperatures):
 ## Suggested NeetCode 150 Problem Set for This Section
 - **Core Stack:** Valid Parentheses, Min Stack, Evaluate Reverse Polish Notation, Generate Parentheses, Daily Temperatures (bridge problem), Car Fleet
 - **Monotonic Stack:** Daily Temperatures, Largest Rectangle in Histogram
-
----
-*Format matches your Arrays & Hashing, Two Pointers, and Sliding Window notes: concept → intuition → deep dive → patterns → pitfalls → interview Q&A, adapted for DSA revision speed.*
