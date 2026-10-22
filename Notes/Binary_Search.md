@@ -3,13 +3,6 @@
 
 ---
 
-## How to use these notes
-- **First pass:** read concept + "why it works" sections, trace the diagrams by hand.
-- **Revision pass (pre-interview):** jump straight to the 🔑 Cheat Sheet and Pattern Recognition tables at the top of each method.
-- **While solving:** use the "Signal → Technique" tables to map problem phrasing to the right variant in <10 seconds.
-
----
-
 ## 🔑 Cheat Sheet — Both Methods at a Glance
 | Method | Goal | What Narrows the Search | Time | Space |
 |---|---|---|---|---|
@@ -191,6 +184,3 @@ def minEatingSpeed(piles, h):
 ## Suggested NeetCode 150 Problem Set for This Section
 - **Search Array (Classic):** Binary Search, Search a 2D Matrix, Search in Rotated Sorted Array, Find Minimum in Rotated Sorted Array, Find Peak Element
 - **Search Range (Boundary / On Answer):** Find First and Last Position of Element in Sorted Array, Koko Eating Bananas, Time Based Key-Value Store, Median of Two Sorted Arrays (advanced), Capacity To Ship Packages Within D Days
-
----
-*Format matches your Arrays & Hashing, Two Pointers, Sliding Window, and Stack notes: concept → intuition → deep dive → patterns → pitfalls → interview Q&A, adapted for DSA revision speed.*
