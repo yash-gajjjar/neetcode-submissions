@@ -1,5 +1,5 @@
 # Arrays & Hashing — DSA Interview Notes
-*NeetCode 150 | Dynamic Arrays · Hash Usage · Hash Implementation · Prefix Sums*
+*NeetCode 150 | Dynamic Arrays · Hash Usage · Prefix Sums*
 
 # 1. Dynamic Arrays
 
@@ -61,7 +61,6 @@ This is the classic "doubling" argument — know it, interviewers sometimes ask 
 ## Interview Talking Points
 - "Why not just use a static array?" → don't know size in advance / need to grow.
 - "What's the worst case for a single append?" → O(n), when resize is triggered.
-- "How would you implement `push_back` for a dynamic array in C-like pseudocode?" → be ready to sketch it (see Hash Implementation section below for a similar resize-from-scratch mentality).
 
 ---
 
@@ -107,114 +106,7 @@ A hash map trades a small amount of memory for **O(1) average-case lookup/insert
 
 ---
 
-# 3. Hash Implementation
-
-## 🔑 Cheat Sheet
-| Concept | Summary |
-|---|---|
-| Hash function | Maps key → integer index (bucket) |
-| Collision | Two keys map to the same bucket |
-| Chaining | Each bucket holds a linked list/array of entries |
-| Open addressing | On collision, probe for next free slot (linear/quadratic/double hashing) |
-| Load factor (α) | `n / capacity` — triggers resize when too high (commonly α > 0.7) |
-| Amortized complexity | O(1) average for get/put/delete, assuming good hash function + resizing |
-
-## Core Intuition
-A hash table is really just **a dynamic array of buckets** + **a hash function** that converts an arbitrary key into an array index.
-
-```
-hash("cat") → 3489201 → 3489201 % capacity(8) → bucket 5
-```
-
-### Step by step: `put(key, value)`
-1. Compute `h = hash(key)`.
-2. Compute `index = h % capacity`.
-3. Go to `buckets[index]`.
-4. If empty → insert `(key, value)`.
-5. If occupied (**collision**) → handle via chaining or probing (below).
-6. If `load_factor > threshold` → resize (grow capacity, usually ×2) and **rehash every existing entry** (indices change because capacity changed).
-
-## Collision Resolution Strategies
-### 1. Separate Chaining (most common in interviews to explain/implement)
-Each bucket is a list. On collision, just append to that bucket's list.
-```
-buckets[5] = [("cat", 1), ("dog", 2)]   # both hashed to bucket 5
-```
-- Lookup: hash to bucket, then linear scan within that bucket (short if load factor is kept low).
-- Simple to implement; degrades gracefully.
-
-### 2. Open Addressing (linear probing)
-On collision at index `i`, try `i+1`, `i+2`, ... until an empty slot is found.
-```
-insert("cat") → bucket 5 (empty) → placed
-insert("dog") → bucket 5 (taken) → try bucket 6 (empty) → placed
-```
-- No extra memory for linked lists, but clustering can degrade performance; deletion is trickier (need tombstones).
-
-## Why Resizing Matters
-If you never resize, as `n` grows, chains get longer → lookup degrades toward O(n). Keeping **load factor bounded** (e.g., resize when `n/capacity > 0.7`) is what preserves the O(1) *average* guarantee — same amortized-doubling argument as Dynamic Arrays (§1).
-
-## Minimal "Design HashMap" Implementation (Python, chaining)
-```python
-class MyHashMap:
-    def __init__(self):
-        self.capacity = 8
-        self.size = 0
-        self.buckets = [[] for _ in range(self.capacity)]
-
-    def _hash(self, key):
-        return hash(key) % self.capacity
-
-    def _resize(self):
-        old_buckets = self.buckets
-        self.capacity *= 2
-        self.buckets = [[] for _ in range(self.capacity)]
-        self.size = 0
-        for bucket in old_buckets:
-            for k, v in bucket:
-                self.put(k, v)   # rehash into new capacity
-
-    def put(self, key, value):
-        idx = self._hash(key)
-        for i, (k, v) in enumerate(self.buckets[idx]):
-            if k == key:
-                self.buckets[idx][i] = (key, value)   # update
-                return
-        self.buckets[idx].append((key, value))
-        self.size += 1
-        if self.size / self.capacity > 0.7:
-            self._resize()
-
-    def get(self, key):
-        idx = self._hash(key)
-        for k, v in self.buckets[idx]:
-            if k == key:
-                return v
-        return -1   # not found
-
-    def remove(self, key):
-        idx = self._hash(key)
-        for i, (k, v) in enumerate(self.buckets[idx]):
-            if k == key:
-                del self.buckets[idx][i]
-                self.size -= 1
-                return
-```
-**Complexity:** O(1) average for put/get/remove; O(n) worst case if all keys collide (rare with a good hash function and resizing).
-
-## Common Pitfalls
-- Forgetting to **rehash on resize** — indices are only valid for the capacity they were computed under.
-- Confusing **average case O(1)** with **worst case O(1)** — always mention both when asked.
-- Not discussing what makes a "good" hash function (uniform distribution, deterministic, fast to compute) if asked.
-- Off-by-one in probing sequences for open addressing.
-
-## Interview Talking Points
-- Classic ask: **"Design a HashMap without using built-in hash table libraries."** (LeetCode 706) — practice writing the chaining version cold.
-- Follow-up: "How would you handle resizing?" and "What if two different keys always collide?" (worst-case discussion, mention hash function quality / adversarial inputs).
-
----
-
-# 4. Prefix Sums
+# 3. Prefix Sums
 
 ## 🔑 Cheat Sheet
 | Task | Formula |
@@ -295,7 +187,6 @@ This turns an O(n²) brute force (all subarrays) into **O(n)**.
 |---|---|---|---|
 | Dynamic Arrays | Amortized growth vs. fixed size | Append (amortized), index access | Frequent front insert/delete → use deque |
 | Hash Usage | Space for time | Lookup/insert/delete (avg) | Need O(1) *extra* space, or ordered data |
-| Hash Implementation | Load factor vs. memory | get/put/remove (avg) | Poor hash function → clustering, worst-case O(n) |
 | Prefix Sums | Precompute once, query cheap | Range sum query | Array is mutated frequently → need Fenwick/Segment Tree |
 
 ## Suggested NeetCode 150 Problem Set for This Section
