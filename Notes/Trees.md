@@ -3,10 +3,6 @@
 
 ---
 
-All code examples in Python.
-
----
-
 ## 🔑 Cheat Sheet — Everything at a Glance
 | Concept | Core Idea | Time | Space |
 |---|---|---|---|
