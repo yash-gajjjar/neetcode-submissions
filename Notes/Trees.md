@@ -1,8 +1,6 @@
 # Trees — DSA Interview Notes
 *Tree Fundamentals · Building a Binary Tree · DFS Traversals (In/Pre/Post-order) · Iterative DFS · BFS (Level Order) · Binary Search Trees · BST Sets & Maps*
 
-> **Note on sources:** Your list had overlap between the YouTube fundamentals series and NeetCode's course — "Level order traversal" (YouTube) is the same concept as "Breadth-First Search" (NeetCode), and "In/Pre/Post-order traversal" (YouTube) are the three recursive flavors of what NeetCode calls "Depth-First Search." These have been merged below into single sections so you're not studying the same concept twice under different names.
-
 ---
 
 All code examples in Python.
