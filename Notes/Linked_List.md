@@ -1,5 +1,5 @@
 # Linked List — DSA Interview Notes
-*NeetCode 150 | Singly Linked Lists · Doubly Linked Lists · Fast & Slow Pointers · Circular Linked Lists*
+*NeetCode 150 | Singly Linked Lists · Doubly Linked Lists · Fast & Slow Pointers*
 
 ---
 
@@ -9,7 +9,7 @@
 | Singly Linked List | Node → next only | Sequential access, insert/delete at known position | O(1) insert/delete at head; O(n) access | O(n) |
 | Doubly Linked List | Node ↔ prev/next both directions | Need to traverse/delete backward, O(1) removal given a node reference | O(1) insert/delete given node; O(n) access | O(n) |
 | Fast & Slow Pointers | Two pointers moving at different speeds through the list | Cycle detection, find middle, find Nth-from-end | O(n) | O(1) |
-| Circular Linked List | Tail's `next` points back into the list (often to head) | Round-robin scheduling, detecting/breaking cycles | O(n) traversal, O(1) insert at known position | O(n) |
+
 
 **Core shared idea:** unlike arrays, linked lists give up O(1) random access in exchange for O(1) insert/delete *once you're at the right node* — most linked-list interview problems are really about **pointer bookkeeping**: carefully rewiring `next` (and `prev`) references without losing track of nodes.
 
@@ -272,89 +272,6 @@ def removeNthFromEnd(head, n):
 
 ---
 
-# 4. Circular Linked Lists
-
-## 🔑 Cheat Sheet
-| Aspect | Detail |
-|---|---|
-| Definition | The last node's `next` points back into the list instead of `None` (often back to `head`, forming a full loop) |
-| Traversal | Must track a stopping condition (e.g., "stop when you return to the starting node") — a plain `while node:` loop never terminates |
-| Common use | Round-robin scheduling (CPU scheduling, playlist looping, Josephus-style problems) |
-| Complexity | O(n) traversal, O(1) insert given a node reference |
-
-## Core Intuition
-A circular linked list has **no natural end** — the last node connects back into the structure. This is a deliberate design choice for problems that model "cyclic" real-world processes (round-robin turns, repeating playlists), and it's also exactly the *structure* that Floyd's cycle detection (§3) is built to find when a cycle appears **unintentionally** (a bug) in what should have been a normal singly linked list.
-
-```
-head → [1] → [2] → [3] → [4]
-        ↑_________________|
-        (tail.next points back to head)
-```
-
-### Traversal Pattern (must avoid infinite loop)
-```python
-def traverse_circular(head):
-    if not head:
-        return []
-    result = [head.val]
-    node = head.next
-    while node != head:      # stop condition: back to start
-        result.append(node.val)
-        node = node.next
-    return result
-```
-
-## Signal → Technique
-| Signal in Problem Statement | Technique |
-|---|---|
-| "design a circular queue / circular buffer" | Fixed-size array or linked list with wraparound indexing (`(i + 1) % capacity`) |
-| "round robin scheduling / Josephus problem" | Circular linked list, advance and remove nodes in a loop until one remains |
-| "insert into a sorted circular linked list" | Walk the list tracking `prev`/`curr`, handle wraparound and the special case of inserting at the "boundary" (max→min transition) |
-| "detect if a (supposedly non-circular) linked list is actually circular" | Floyd's fast/slow — this is the exact use case tying back to §3 |
-| "split a circular linked list into two halves" | Fast/slow to find midpoint, then carefully rewire both halves to be circular again |
-
-## Worked Pattern: Insert into a Sorted Circular Linked List
-```python
-class Node:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
-
-def insert(head, insertVal):
-    new_node = Node(insertVal)
-    if not head:
-        new_node.next = new_node
-        return new_node
-
-    prev, curr = head, head.next
-    while True:
-        if prev.val <= insertVal <= curr.val:
-            break                                     # normal case: fits between prev and curr
-        if prev.val > curr.val:                       # boundary: curr is the smallest (wraparound point)
-            if insertVal >= prev.val or insertVal <= curr.val:
-                break
-        prev, curr = curr, curr.next
-        if prev == head:                               # full loop, all values equal or no fit found
-            break
-
-    prev.next = new_node
-    new_node.next = curr
-    return head
-```
-**Key idea:** three cases to handle explicitly — normal in-between insertion, the wraparound boundary (max value → min value transition), and the case where you loop all the way back to `head` (list is uniform/no natural fit).
-
-## Common Pitfalls
-- Using a plain `while node:` traversal — on a circular list this **never terminates**, since `next` never becomes `None`. Always track a stop condition (back to start node, or a count of nodes visited).
-- Forgetting the wraparound boundary case when inserting into a sorted circular list — this is the case candidates most often miss.
-- Off-by-one when counting nodes for round-robin/Josephus-style problems — verify against a small hand-traced example (e.g., 3 nodes, eliminate every 2nd).
-- Confusing "the list is circular by design" (this section) with "the list became circular due to a bug" (§3, Floyd's detection) — they use similar traversal caution but solve different problems.
-
-## Interview Talking Points
-- If asked to detect whether a linked list is circular, immediately connect it back to Floyd's fast/slow (§3) rather than treating it as a new problem.
-- For round-robin/scheduling-style problems, be explicit about the termination condition you're tracking (returned to start node vs. a fixed node count) — this is a common source of subtle bugs interviewers probe on.
-
----
-
 ## 📋 Quick Cross-Topic Revision Table
 
 | Question to Ask Yourself | If Yes → | If No → |
@@ -370,4 +287,3 @@ def insert(head, insertVal):
 - **Singly Linked List:** Reverse Linked List, Merge Two Sorted Lists, Reorder List, Remove Nth Node From End of List, Add Two Numbers
 - **Doubly Linked List:** LRU Cache, Design Browser History, Flatten a Multilevel Doubly Linked List
 - **Fast & Slow Pointers:** Linked List Cycle, Linked List Cycle II, Middle of the Linked List, Palindrome Linked List
-- **Circular Linked List:** Design Circular Queue, Insert into a Sorted Circular Linked List, Josephus Problem (practice variant)
