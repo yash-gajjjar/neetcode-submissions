@@ -1,5 +1,5 @@
 # Trees — DSA Interview Notes
-*Tree Fundamentals · Building a Binary Tree · DFS Traversals (In/Pre/Post-order) · Iterative DFS · BFS (Level Order) · Binary Search Trees · BST Sets & Maps*
+*Tree Fundamentals · Building a Binary Tree · DFS Traversals (In/Pre/Post-order) · Iterative DFS · BFS (Level Order) · Binary Search Trees*
 
 ---
 
@@ -10,7 +10,6 @@
 | Iterative DFS | Same traversal orders, using an explicit stack instead of recursion | O(n) | O(h) explicit stack |
 | BFS / Level Order | Visit level by level, using a queue | O(n) | O(w), w = max width of tree |
 | BST Insert/Remove | Use ordering property to navigate in O(h) instead of scanning all nodes | O(h) avg, O(n) worst (skewed) | O(h) recursion or O(1) iterative |
-| BST as Set/Map | Ordering property gives sorted iteration + O(h) lookup "for free" | O(h) | O(n) |
 
 **Core shared idea:** almost every tree problem is either **DFS-shaped** (explore fully before backtracking — good for path/subtree problems) or **BFS-shaped** (explore level by level — good for shortest-path/level-grouping problems). Recognizing which shape a problem needs is the single highest-leverage skill in this topic.
 
@@ -380,63 +379,8 @@ def deleteNode(root, key):
 
 ## Interview Talking Points
 - Always mention the worst-case degenerate scenario when discussing BST complexity — strong candidates say "O(log n) average, O(n) worst case if unbalanced" rather than just "O(log n)."
-- Be ready to connect BST search directly back to Binary Search on Array — same halving logic, different underlying structure.
-
----
-
-# 7. BST Sets and Maps
-
-## 🔑 Cheat Sheet
-| Structure | What It Gives You "For Free" | Backing Structure (typical) |
-|---|---|---|
-| TreeSet / TreeMap (ordered set/map) | Sorted iteration, O(log n) floor/ceiling/range queries, O(log n) insert/search/delete | Self-balancing BST (Red-Black tree in Java's `TreeMap`, etc.) |
-| Plain HashSet/HashMap | O(1) average lookup, **no ordering** | Hash table (see Hash Implementation notes) |
-
-## Core Intuition
-A hashmap gives you O(1) lookup but **no ordering** — you can't efficiently ask "what's the smallest key ≥ X?" or "give me all keys in sorted order" without extra work. A **BST-backed** map/set trades O(1) for O(log n) lookup in exchange for maintaining sorted order, which unlocks range queries, floor/ceiling lookups, and ordered iteration directly.
-
-**Python note:** Python's standard library doesn't have a built-in balanced BST map/set (unlike Java's `TreeMap`/`TreeSet`). In interviews, this is usually simulated with the `sortedcontainers` library (`SortedList`, `SortedDict`) if allowed, or by explicitly discussing that you'd use a self-balancing BST if implementing from scratch.
-
-## Signal → Technique
-| Signal in Problem Statement | Technique |
-|---|---|
-| "find the closest value ≤/≥ X in a dynamic set" (floor/ceiling) | Ordered set/map (BST-backed) — `sortedcontainers.SortedList` with `bisect` in Python |
-| "maintain a running sorted structure with frequent insert/delete" | Ordered set/map — better than resorting an array every time (O(n log n) per resort vs. O(log n) per op) |
-| "range query: count/sum of elements between L and R, with updates" | Ordered structure, or ties back to Fenwick/Segment Tree (mentioned in Prefix Sums notes) for even better range-update performance |
-| "calendar/interval scheduling with dynamic insert and neighbor lookup" | Ordered map keyed by start time, using floor/ceiling to find overlapping neighbors |
-
-## Worked Pattern: Simulating an Ordered Set in Python (via `sortedcontainers` or `bisect`)
-```python
-import bisect
-
-class OrderedSetSim:
-    def __init__(self):
-        self.data = []
-
-    def insert(self, val):
-        idx = bisect.bisect_left(self.data, val)
-        if idx == len(self.data) or self.data[idx] != val:
-            self.data.insert(idx, val)   # O(n) insert on plain list — a real TreeSet would be O(log n)
-
-    def contains(self, val):
-        idx = bisect.bisect_left(self.data, val)
-        return idx < len(self.data) and self.data[idx] == val   # O(log n) search
-
-    def ceiling(self, val):
-        idx = bisect.bisect_left(self.data, val)
-        return self.data[idx] if idx < len(self.data) else None
-```
-**Important caveat to state in interviews:** a plain Python list with `bisect` gives O(log n) **search** but O(n) **insert** (due to shifting elements) — a true BST-backed structure (or `sortedcontainers.SortedList`, which uses an internally chunked list) gets closer to O(log n) for both. Know this trade-off rather than presenting `bisect` as a full substitute for a balanced BST.
-
-## Common Pitfalls
-- Assuming Python's `bisect` module alone gives O(log n) insert — it only gives O(log n) *search*; the underlying `list.insert` is still O(n).
-- Reaching for a plain hashmap/hashset when the problem explicitly needs **ordering** (closest value, range queries) — this is the clearest signal to reach for a BST-backed structure instead.
-- Not mentioning the self-balancing requirement (AVL/Red-Black) when discussing "how would you implement a TreeMap from scratch" — a plain unbalanced BST can degrade to O(n), same caveat as §6.
-
-## Interview Talking Points
-- If a problem needs both **fast lookup** and **sorted order/range queries**, that combination is the clearest signal to reach for an ordered (BST-backed) set/map instead of a plain hashmap — name this trade-off explicitly.
-- Be ready to mention `sortedcontainers.SortedList`/`SortedDict` as the practical Python answer, while acknowledging the true underlying data structure being approximated is a self-balancing BST.
-
+- Be ready to connect BST search directly back to Binary Search on Array — same halving logic, different underlying structure
+  
 ---
 
 ## 📋 Quick Cross-Topic Revision Table
@@ -447,7 +391,6 @@ class OrderedSetSim:
 | Do I need shortest path, level grouping, or "closest to root" guarantees? | BFS | — |
 | Recursion might hit a depth limit, or interviewer wants no recursion? | Iterative DFS (explicit stack) | Recursive DFS is fine |
 | Does the tree maintain a left < node < right ordering invariant? | BST — leverage it for O(h) search/insert/delete | General binary tree — no shortcut, must visit more broadly |
-| Do I need sorted iteration or floor/ceiling queries on a dynamic set? | BST-backed ordered set/map | Plain hashmap/hashset (O(1), no ordering) |
 | Am I computing something bottom-up (height, sum, diameter)? | Post-order DFS | — |
 
 ## Suggested Problem Set for This Section
