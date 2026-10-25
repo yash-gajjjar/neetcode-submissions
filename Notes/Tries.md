@@ -1,12 +1,6 @@
 # Tries — DSA Interview Notes
 *Trie Fundamentals & Implementation · Trie Applications & Patterns*
 
-> **Note:** No sub-topics were given for this one, so it's split into the two groupings that actually matter for interviews: how to build/implement a trie from scratch, and the recurring problem patterns that signal "use a trie."
-
----
-
-All code examples in Python.
-
 ---
 
 ## 🔑 Cheat Sheet — Both Sections at a Glance
