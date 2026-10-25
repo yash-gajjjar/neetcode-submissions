@@ -1,4 +1,4 @@
-# Trees — DSA Interview Notes
+# Trees - DSA Interview Notes
 *Tree Fundamentals · Building a Binary Tree · DFS Traversals (In/Pre/Post-order) · Iterative DFS · BFS (Level Order) · Binary Search Trees*
 
 ---
