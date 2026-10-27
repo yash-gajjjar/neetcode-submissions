@@ -1,12 +1,6 @@
 # Backtracking — DSA Interview Notes
 *Backtracking Fundamentals & Template · Core Patterns (Subsets/Permutations/Combinations) · Pruning & Constraint Satisfaction*
 
-> **Note:** No sub-topics were given for this one, so it's split into the three groupings that cover what interviews actually test: the general template every backtracking solution follows, the handful of recurring enumeration patterns, and how pruning turns a brute-force search into something that actually finishes in time.
-
----
-
-All code examples in Python.
-
 ---
 
 ## 🔑 Cheat Sheet — All Three Sections at a Glance
