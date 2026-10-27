@@ -12,6 +12,8 @@
 
 **Core shared idea:** backtracking is DFS over a **decision tree** where each node represents a partial solution. At every node, you try each available choice, recurse, then **undo** that choice before trying the next one — the "undo" step (backtracking) is what lets you reuse the same state/array across all branches instead of copying it.
 
+Example - Imagine choosing what to wear. You try a blue shirt, see what combinations work, then change it and try a black shirt.
+
 ---
 
 # 1. Backtracking Fundamentals & Template
