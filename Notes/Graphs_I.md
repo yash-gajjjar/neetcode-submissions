@@ -1,12 +1,6 @@
 # Graphs I — DSA Interview Notes
 *Intro to Graphs · Adjacency List · Matrix DFS · Matrix BFS*
 
-> **Part I of II.** This covers graph fundamentals, representation, and grid-based (matrix) DFS/BFS. General graph traversal on adjacency lists, Union-Find, topological sort, and shortest-path algorithms (Dijkstra, etc.) are covered separately in Graphs II.
-
----
-
-All code examples in Python.
-
 ---
 
 ## 🔑 Cheat Sheet — All Four Sections at a Glance
