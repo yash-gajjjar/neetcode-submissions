@@ -1,6 +1,4 @@
-# 30-Day Company-Specific LeetCode Roadmap
-
-**Goal:** Use company-tagged questions to improve interview coverage without repeating NeetCode 150 from scratch.
+## 30-Day Company-Specific LeetCode Roadmap
 
 ## Target companies
 
@@ -9,8 +7,6 @@
 **Priority 2:** LinkedIn, Nvidia, Databricks, OpenAI, Atlassian, Salesforce, Coinbase
 
 **Priority 3:** ByteDance, Flipkart, Intuit, Walmart Labs, Stripe
-
-> The repository has uneven recent coverage. Empty 30-day / 3-month company CSVs are noted in the question-list files; they are not padded with invented questions.
 
 ## How to follow the plan
 
@@ -68,5 +64,3 @@
 - 20–30 focused revisions from NeetCode 150.
 - At least 4 timed mocks.
 - For every retained problem: explain the approach, complexity, edge cases and trade-offs without looking at notes.
-
-**Reference lists:** [30-day company questions](company-problems-30-days.md) · [3-month company questions](company-problems-3-months.md)
