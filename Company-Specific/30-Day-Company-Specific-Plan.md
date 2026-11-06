@@ -1,5 +1,3 @@
-## 30-Day Company-Specific LeetCode Roadmap
-
 ## Target companies
 
 **Priority 1:** Amazon, Google, Meta, Microsoft, Apple, Bloomberg, Uber, Adobe
