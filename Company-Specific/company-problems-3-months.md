@@ -1,29 +1,8 @@
-# Company-Wise LeetCode Problems — 3 Months
-
-> Source: `liquidslr/leetcode-company-wise-problems`, company `2. Three Months.csv` files. Frequency values are copied from the repository and are prioritization signals, not interview probabilities.
-
 ## Company coverage
 
-- Amazon: included
-- Google: included
-- Meta: included
-- Microsoft: included
-- Apple: included
-- Bloomberg: included
-- Uber: included
-- Adobe: included
-- LinkedIn: included
-- Nvidia: included
-- Salesforce: included
-- Databricks: included
-- OpenAI: included
-- Atlassian: included
-- ByteDance: included
-- Flipkart: included
-- Intuit: included
-- Walmart Labs: included
-- Stripe: included
-- Coinbase: no problem rows in the 3-month CSV snapshot
+- Included: Amazon, Google, Meta, Microsoft, Apple, Bloomberg, Uber, Adobe, LinkedIn, Nvidia, Salesforce, Databricks, OpenAI, Atlassian, ByteDance, Flipkart, Intuit, Walmart Labs, Stripe
+
+- No problem in the 3-month CSV sheet: Coinbase
 
 **Source rows:** 1542 across 19 company files. **Unique problems after title deduplication:** 703.
 
